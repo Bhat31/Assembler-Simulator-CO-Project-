@@ -51,6 +51,27 @@ def convert_to_binary(number):
          for i in range(len(decimal_number_string),11):
               decimal_number_string=decimal_number_string+"0"
     return decimal_number_string
+def convert_to_binary_19(num):
+    dec_number=int(num)
+    bin_rep=bin(dec_number)
+    dec_number_str=str(bin_rep)
+    dec_number_str=dec_number_str[2:len(dec_number_str)]
+    if(len(dec_number_str)!=19):
+        for j in range(len(dec_number_str),19):
+            dec_number_str=dec_number_str+"0"
+    return dec_number_str
+def convert_to_binary_12(num):
+    dec_numb=int(num)
+    bin_represent=bin(dec_number)
+    dec_number_string=str(bin_represent)
+    dec_number_string=dec_number_string[2:len(dec_number_string)]
+    if(len(dec_number_string)!=19):
+        for j in range(len(dec_number_string),19):
+            dec_number_string=dec_number_string+"0"
+    return dec_number_string
+    
+num=int(input("Enter the number"))
+print(convert(num))
 def assemble_instruction(instruction):
     tokens = instruction.strip().split()
     print(instruction)
@@ -118,12 +139,3 @@ def identificationforJ(tokens):
      binary_number_J=convert_to_binary[tokens[2]]
      final_output=final_output+binary_number_J
      return(final_output)
-    def convert(num):
-     dec_number=int(num)
-     bin_rep=bin(dec_number)
-     dec_number_str=str(bin_rep)
-     dec_number_str=dec_number_str[2:len(dec_number_str)]
-     if(len(dec_number_str)!=19):
-          for j in range(len(dec_number_str),19):
-               dec_number_str=dec_number_str+"0"
-    return dec_number_str
