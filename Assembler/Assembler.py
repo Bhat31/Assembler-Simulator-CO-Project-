@@ -152,7 +152,7 @@ def identificationforJ(tokens):
      binary_number_J=convert_to_binary[tokens[2]]
      final_output=final_output+binary_number_J
      return(final_output)
-def identificationforb(tokens):
+def identificationforB(tokens):
      final_output=""
      final_output=final_output+oppcodes["blt"]
      final_output=final_output+registers[tokens[1]]
