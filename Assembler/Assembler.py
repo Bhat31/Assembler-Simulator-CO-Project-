@@ -43,7 +43,7 @@ oppcodesforR= {"add":"000", "sub":"000", "sll":"001","slt":"010",
               "sltu":"011","xor":"100","srl":"101","or":"110","and":"111"}
 oppcodesfori={"lw":"010","addi":"000","sltiu":"011","jalr":"000"}
 oppcodesforB={"beq":"000","bne":"001","blt":"100","bge":"101"}
-def convert_to_binary_11(number):
+def convert_to_binary(number):
     decimal_number=int(number)
     binary_representation=bin(decimal_number)
     decimal_number_string=str(binary_representation)
