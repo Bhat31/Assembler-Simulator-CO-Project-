@@ -41,6 +41,15 @@ oppcodes = { 'add': '0110011', 'sub': '0110011', 'sll': '0110011', 'slt': '01100
     'auipc': '0010111', 'lui': '0110111', 'jal': '1101111'}
 oppcodesforR= {"add":"000", "sub":"000", "sll":"001","slt":"010",
               "sltu":"011","xor":"100","srl":"101","or":"110","and":"111"}
+def convert_to_binary(number):
+    decimal_number=int(number)
+    binary_representation=bin(decimal_number)
+    decimal_number_string=str(binary_representation)
+    decimal_number_string=decimal_number_string[2:len(decimal_number_string)]
+    if(len(decimal_number_string)!=11):
+         for i in range(len(decimal_number_string),11):
+              decimal_number_string=decimal_number_string+"0"
+    return decimal_number_string
 def assemble_instruction(instruction):
     tokens = instruction.strip().split()
     print(instruction)
