@@ -63,7 +63,7 @@ def convert_to_binary_19(num):
     return dec_number_str
 def convert_to_binary_12(num):
     dec_numb=int(num)
-    bin_represent=bin(dec_number)
+    bin_represent=bin(dec_numb)
     dec_number_string=str(bin_represent)
     dec_number_string=dec_number_string[2:len(dec_number_string)]
     if(len(dec_number_string)!=19):
