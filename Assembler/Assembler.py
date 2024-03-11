@@ -111,6 +111,8 @@ def assemble_instruction(instruction):
     print(final1)
     return final1
 #c = assemble_instruction("add r23, r1, r2")
+
+lfinal=[]
 def identificationforR(tokens):
     function7="0000000"
     if(tokens[0]=="sub"):
@@ -123,7 +125,7 @@ def identificationforR(tokens):
     final_output=final_output+registers[tokens[3]]
     final_output=final_output+function7
     return(final_output)
-    print(len(final_output))
+    lfinal.append(final_output)
 #identificationforR(c)
 def identificationfori(tokens):
     final_output=""
@@ -134,6 +136,7 @@ def identificationfori(tokens):
         final_output=final_output+oppcodesforI[tokens[0]]
         final_output=final_output+registers[tokens[3]]
         final_output=final_output+binary_number
+        lfinal.append(final_output)
     else:
         binary_number=convert_to_binary[tokens[2]]
         final_output=final_output+oppcodes[tokens[0]]
@@ -141,6 +144,7 @@ def identificationfori(tokens):
         final_output=final_output+oppcodesforI[tokens[0]]
         final_output=final_output+registers[tokens[3]]
         final_output=final_output+binary_number
+        lfinal.append(final_output)
     return(final_output)
 def identificationforS(tokens):
      final_output=""
@@ -150,6 +154,7 @@ def identificationforS(tokens):
      final_output=final_output+registers[tokens[3]]
      final_output=final_output+binary_number_S
      return(final_output)
+     lfinal.append(final_output)
 def identificationforU(tokens):
      final_output=""
      final_output=final_output+oppcodes[tokens[0]]
@@ -157,6 +162,7 @@ def identificationforU(tokens):
      binary_number_U=convert_to_binary[tokens[2]]
      final_output=final_output+binary_number_U
      return(final_output)
+     lfinal.append(final_output)
 def identificationforJ(tokens):
      final_output=""
      final_output=final_output+oppcodes[tokens[0]]
@@ -164,6 +170,7 @@ def identificationforJ(tokens):
      binary_number_J=convert_to_binary[tokens[2]]
      final_output=final_output+binary_number_J
      return(final_output)
+     lfinal.append(final_output)
 def identificationforB(tokens):
      final_output=""
      final_output=final_output+oppcodes["blt"]
@@ -172,6 +179,7 @@ def identificationforB(tokens):
      final_output=final_output+registers[tokens[3]]
      final_output=final_output+binary_number_B
      return(final_output)
+     lfinal.append(final_output)
 
 
 file1= "file.txt"
