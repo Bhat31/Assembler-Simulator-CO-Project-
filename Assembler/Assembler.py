@@ -60,7 +60,24 @@ def checkInstructionType(instruction):
     else:
         return 'Unknown-type'
 
-
+def assemble_instruction(tokens):
+    instructions_list = [tokens.replace(',', ' ').split() for tokens in tokens]
+    #print(instructions_list)
+    final_list=[]
+    string=""
+    string1=""
+    counter=0
+    for i in instructions_list:
+        counter=counter+1
+        if (i==[]):
+            final_list.append(string)
+            string=string1
+        else:
+            string=string+i[0]
+        if(counter==len(instructions_list)):
+            final_list.append(string)
+    #print(final_list)
+    return(final_list)
 def missing_halt(instruction):
    last_instruction = instruction[-1]
    if last_instruction == "beq zero,zero,0":
