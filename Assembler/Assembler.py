@@ -139,21 +139,15 @@ def identificationforJ(tokens):
      binary_number_J=convert_to_binary[tokens[2]]
      final_output=final_output+binary_number_J
      return(final_output)
-def identificationfori(tokens):
-    final_output=""
-    if(tokens[0]=="lw"):
-        binary_number=convert_to_binary[tokens[2]]
-        final_output=final_output+oppcodes[tokens[0]]
-        final_output=final_output+registers[tokens[1]]
-        final_output=final_output+oppcodesforI[tokens[0]]
-        final_output=final_output+registers[tokens[3]]
-        final_output=final_output+binary_number
-    else:
-        binary_number=convert_to_binary[tokens[2]]
-        final_output=final_output+oppcodes[tokens[0]]
-        final_output=final_output+registers[tokens[1]]
-        final_output=final_output+oppcodesforI[tokens[0]]
-        final_output=final_output+registers[tokens[3]]
-        final_output=final_output+binary_number
+def identificationforb(tokens):
+     final_output=""
+     final_output=final_output+oppcodes["blt"]
+     final_output=final_output+registers[tokens[1]]
+     binary_number_B=convert_to_binary[tokens[2]]
+     final_output=final_output+registers[tokens[3]]
+     final_output=final_output+binary_number_B
+     return(final_output)
 
+
+    
 
