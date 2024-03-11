@@ -106,7 +106,6 @@ def assemble_instruction(instruction):
                 final1.append(i)
         else:
              final1.append(i)
-    print(final1)
     return final1
 #c = assemble_instruction("add r23, r1, r2")
 
