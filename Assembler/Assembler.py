@@ -70,9 +70,6 @@ def convert_to_binary_12(num):
         for j in range(len(dec_number_string),19):
             dec_number_string=dec_number_string+"0"
     return dec_number_string
-    
-num=int(input("Enter the number"))
-print(convert(num))
 def assemble_instruction(instruction):
     tokens = instruction.strip().split()
     print(instruction)
