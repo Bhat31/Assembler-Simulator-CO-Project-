@@ -43,8 +43,21 @@ oppcodesforR= {"add":"000", "sub":"000", "sll":"001","slt":"010",
               "sltu":"011","xor":"100","srl":"101","or":"110","and":"111"}
 oppcodesfori={"lw":"010","addi":"000","sltiu":"011","jalr":"000"}
 oppcodesforB={"beq":"000","bne":"001","blt":"100","bge":"101"}
-
-
+def checkInstructionType(instruction):
+    if instruction[0] == 'sw':
+        return 'S-type'
+    elif instruction[0] == 'jal':
+        return 'J-type'
+    elif instruction[0] in ['add', 'sub', 'slt', 'sltu', 'xor', 'sll', 'srl', 'or', 'and']:
+        return 'R-type'
+    elif instruction[0] in ['lw', 'addi', 'sltiu', 'jalr']:
+        return 'I-type'
+    elif instruction[0] in ['beq', 'bne', 'bge', 'bgeu', 'blt', 'bltu']:
+        return 'B-type'
+    elif instruction[0] in ['lui', 'auipc']:
+        return 'U-type'
+    else:
+        return 'Unknown-type'
 def convert_to_binary(number):
     decimal_number=int(number)
     binary_representation=bin(decimal_number)
