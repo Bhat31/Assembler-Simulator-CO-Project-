@@ -62,9 +62,7 @@ def checkInstructionType(instruction):
 
 
 def missing_halt(instruction):
-# Get the last instruction from the list
    last_instruction = instruction[-1]
-# Check if the last instruction is "beq zero,zero,0"
    if last_instruction == "beq zero,zero,0":
        return True
    else:
