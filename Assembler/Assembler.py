@@ -108,4 +108,5 @@ def identificationforU(tokens):
      final_output=final_output+oppcodes[tokens[0]]
      final_output=final_output+registers[tokens[1]]
      binary_number_U=convert_to_binary[tokens[2]]
+     final_output=final_output+binary_number_U
      print(final_output)
