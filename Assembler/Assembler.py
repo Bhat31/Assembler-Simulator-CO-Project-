@@ -189,8 +189,16 @@ try:
         assemble_instruction(instructions_text)
 except FileNotFoundError:
     print(f"File '{file1}' not found.")
+#---------------------------------------------------
 file2="file.txt"
-with(open(file2,"w") as f:
+try:
+    with open(file2, "w") as fle:
+        for item in lfinal:
+            fle.write(item + "\n")
+    print("List successfully written to file.")
+except IOError:
+    print(f"Error writing to file '{file_path}'.")
+
     
 
 
