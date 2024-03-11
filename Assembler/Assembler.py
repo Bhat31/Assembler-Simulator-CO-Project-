@@ -76,7 +76,7 @@ def identificationforR(tokens):
     final_output=final_output+registers[tokens[2]]
     final_output=final_output+registers[tokens[3]]
     final_output=final_output+function7
-    print(final_output)
+    return(final_output)
     print(len(final_output))
 #identificationforR(c)
 def identificationfori(tokens):
@@ -95,6 +95,7 @@ def identificationfori(tokens):
         final_output=final_output+oppcodesforI[tokens[0]]
         final_output=final_output+registers[tokens[3]]
         final_output=final_output+binary_number
+    return(final_output)
 def identificationforS(tokens):
      final_output=""
      final_output=final_output+oppcodes["sw"]
@@ -102,11 +103,18 @@ def identificationforS(tokens):
      binary_number_S=convert_to_binary[tokens[2]]
      final_output=final_output+registers[tokens[3]]
      final_output=final_output+binary_number_S
-     print(final_output)
+     return(final_output)
 def identificationforU(tokens):
      final_output=""
      final_output=final_output+oppcodes[tokens[0]]
      final_output=final_output+registers[tokens[1]]
      binary_number_U=convert_to_binary[tokens[2]]
      final_output=final_output+binary_number_U
-     print(final_output)
+     return(final_output)
+def identificationforJ(tokens):
+     final_output=""
+     final_output=final_output+oppcodes[tokens[0]]
+     final_output=final_output+registers[tokens[1]]
+     binary_number_J=convert_to_binary[tokens[2]]
+     final_output=final_output+binary_number_J
+     return(final_output)
