@@ -95,3 +95,17 @@ def identificationfori(tokens):
         final_output=final_output+oppcodesforI[tokens[0]]
         final_output=final_output+registers[tokens[3]]
         final_output=final_output+binary_number
+def identificationforS(tokens):
+     final_output=""
+     final_output=final_output+oppcodes["sw"]
+     final_output=final_output+registers[tokens[1]]
+     binary_number_S=convert_to_binary[tokens[2]]
+     final_output=final_output+registers[tokens[3]]
+     final_output=final_output+binary_number_S
+     print(final_output)
+def identificationforU(tokens):
+     final_output=""
+     final_output=final_output+oppcodes[tokens[0]]
+     final_output=final_output+registers[tokens[1]]
+     binary_number_U=convert_to_binary[tokens[2]]
+     print(final_output)
