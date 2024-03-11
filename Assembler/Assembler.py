@@ -42,7 +42,7 @@ oppcodes = { 'add': '0110011', 'sub': '0110011', 'sll': '0110011', 'slt': '01100
 oppcodesforR= {"add":"000", "sub":"000", "sll":"001","slt":"010",
               "sltu":"011","xor":"100","srl":"101","or":"110","and":"111"}
 oppcodesforI={"lw":"010","addi":"000","sltiu":"011","jalr":"000"}
-def convert_to_binary(number):
+def convert_to_binary_11(number):
     decimal_number=int(number)
     binary_representation=bin(decimal_number)
     decimal_number_string=str(binary_representation)
@@ -139,3 +139,21 @@ def identificationforJ(tokens):
      binary_number_J=convert_to_binary[tokens[2]]
      final_output=final_output+binary_number_J
      return(final_output)
+def identificationfori(tokens):
+    final_output=""
+    if(tokens[0]=="lw"):
+        binary_number=convert_to_binary[tokens[2]]
+        final_output=final_output+oppcodes[tokens[0]]
+        final_output=final_output+registers[tokens[1]]
+        final_output=final_output+oppcodesforI[tokens[0]]
+        final_output=final_output+registers[tokens[3]]
+        final_output=final_output+binary_number
+    else:
+        binary_number=convert_to_binary[tokens[2]]
+        final_output=final_output+oppcodes[tokens[0]]
+        final_output=final_output+registers[tokens[1]]
+        final_output=final_output+oppcodesforI[tokens[0]]
+        final_output=final_output+registers[tokens[3]]
+        final_output=final_output+binary_number
+
+
