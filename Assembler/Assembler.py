@@ -1,4 +1,5 @@
 import re
+import sys
 registers = {
     "zero": "00000", #hardwired 0
     "ra": "00001", #ra Return address
@@ -58,6 +59,17 @@ def checkInstructionType(instruction):
         return 'U-type'
     else:
         return 'Unknown-type'
+
+
+def missing_halt(instruction):
+# Get the last instruction from the list
+   last_instruction = instruction[-1]
+# Check if the last instruction is "beq zero,zero,0"
+   if last_instruction == "beq zero,zero,0":
+       return True
+   else:
+       return False
+
 def convert_to_binary(number):
     decimal_number=int(number)
     binary_representation=bin(decimal_number)
