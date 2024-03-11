@@ -118,3 +118,12 @@ def identificationforJ(tokens):
      binary_number_J=convert_to_binary[tokens[2]]
      final_output=final_output+binary_number_J
      return(final_output)
+    def convert(num):
+     dec_number=int(num)
+     bin_rep=bin(dec_number)
+     dec_number_str=str(bin_rep)
+     dec_number_str=dec_number_str[2:len(dec_number_str)]
+     if(len(dec_number_str)!=19):
+          for j in range(len(dec_number_str),19):
+               dec_number_str=dec_number_str+"0"
+    return dec_number_str
