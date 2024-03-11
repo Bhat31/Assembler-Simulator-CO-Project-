@@ -173,18 +173,17 @@ def identificationforB(tokens):
      final_output=final_output+binary_number_B
      return(final_output)
 
-def instruction_assemble(instruction):
-    instructions_list = [instruction.replace(',', ' ').split() for instruction in instruction.split('\n')]
-    for i in instructions_list:
-        return i
 
-file_path = "C:/Users/lenovo/Desktop/New folder/test1.txt"
+file1= "file.txt"
 try:
-    with open(file_path, "r") as file:
+    with open(file1, "r") as file:
         instructions_text = "".join(file.readlines())
-        instruction_assemble(instructions_text)
+        assemble_instruction(instructions_text)
 except FileNotFoundError:
-    print(f"File '{file_path}' not found.")
+    print(f"File '{file1}' not found.")
+file2="file.txt"
+with(open(file2,"w") as f:
+    
 
 
 
