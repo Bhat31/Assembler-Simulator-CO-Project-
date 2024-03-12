@@ -1,1 +1,4 @@
-
+main: addi ra,t0,500
+xor a1,s10,gp
+bltu s11,t4,-412
+halt : beq zero,zero,0
