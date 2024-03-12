@@ -1,1 +1,9 @@
-
+sw ra,0(sp)
+jal tp,sub_func 
+lw ra,0(sp)
+addi sp,sp,16
+sub_func: bne a0,a1,skip
+sll a0,a0,a1
+sltiu sp,sp -16
+skip: or tp,t3,a1
+beq zero,zero,0
