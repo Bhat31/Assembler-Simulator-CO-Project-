@@ -1,1 +1,7 @@
-
+lui t0,100,gp
+srl s0,t0,tp
+sll s1,t0,zero
+and s2,t0,s1
+or s3,t0,s1
+xor s4,s2,s3
+beq zero,zero,0
