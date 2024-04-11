@@ -1,1 +1,78 @@
+def simulate(instructions):
+    # Initialize registers and memory
+    registers = [0] * 32
+    memory = initialize_memory()
 
+    # Initialize program counter
+    pc = 0
+
+    # Main simulation loop
+    while pc < len(instructions):
+        # Fetch the current instruction
+        current_instruction = instructions[pc]
+
+        # Decode the current instruction
+        opcode = current_instruction[-7:]
+
+        # Execute instruction based on opcode
+        if opcode == '0110011':  # R-type instruction
+            execute_r_type(current_instruction, registers)
+        elif opcode == '0000011' or opcode == '0010011' or opcode == '1100111':  # I-type instruction
+            execute_i_type(current_instruction, registers, memory)
+        elif opcode == '0100011':  # S-type instruction
+            execute_s_type(current_instruction, registers, memory)
+        elif opcode == '1100011':  # B-type instruction
+            execute_b_type(current_instruction, registers, pc)
+        elif opcode == '0010111' or opcode == '0110111':  # U-type instruction
+            execute_u_type(current_instruction, registers)
+        elif opcode == '1101111':  # J-type instruction
+            execute_j_type(current_instruction, registers, pc)
+
+        # Print register values after executing instruction
+        print_registers(registers)
+
+        # Increment program counter
+        pc += 1
+
+    # Print memory content after execution
+    print_memory(memory)
+
+def execute_r_type(instruction, registers):
+    # Extract operands from instruction
+    funct7 = instruction[0:7]
+    rs2 = int(instruction[7:12], 2)
+    rs1 = int(instruction[12:17], 2)
+    funct3 = instruction[17:20]
+    rd = int(instruction[20:25], 2)
+
+    # Perform operation based on funct3 and funct7
+    if funct7 == '0000000':
+        if funct3 == '000':  # add
+            registers[rd] = registers[rs1] + registers[rs2]
+        elif funct3 == '001':  # sll
+            registers[rd] = registers[rs1] << (registers[rs2] & 0b11111)
+        # Implement other R-type instructions similarly
+    else:
+        # Handle unsupported instructions or raise an error
+        print("Unsupported R-type instruction")
+
+def execute_i_type(instruction, registers, memory):
+    # Extract operands from instruction
+    imm = int(instruction[0:12], 2)
+    rs1 = int(instruction[12:17], 2)
+    funct3 = instruction[17:20]
+    rd = int(instruction[20:25], 2)
+    opcode = instruction[-7:]
+
+    # Perform operation based on opcode
+    if opcode == '0000011':  # lw
+        address = registers[rs1] + imm
+        registers[rd] = memory[address]
+    elif opcode == '0010011':  # addi
+        registers[rd] = registers[rs1] + imm
+    elif opcode == '1100111':  # jalr
+        registers[rd] = pc + 4  # Return address
+        pc = (registers[rs1] + imm) & -2  # Jump address
+    else:
+        # Handle unsupported instructions or raise an error
+        print("Unsupported I-type instruction")
