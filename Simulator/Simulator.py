@@ -76,3 +76,11 @@ def execute_i_type(instruction, registers, memory):
     else:
         # Handle unsupported instructions or raise an error
         print("Unsupported I-type instruction")
+def execute_j_type(instruction, registers, pc):
+    # Extract operands from instruction
+    imm = int(instruction[0] + instruction[12:20] + instruction[11] + instruction[1:11] + "0", 2)
+    rd = int(instruction[20:25], 2)
+    # Store the return address in the destination register
+    registers[rd] = pc + 4
+    # Update program counter to jump to the target address
+    pc += imm
