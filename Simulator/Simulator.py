@@ -51,6 +51,8 @@ def execute_r_type(instruction, registers):
             registers[rd] = registers[rs1] + registers[rs2]
         elif funct3 == '001':  # sll
             registers[rd] = registers[rs1] << (registers[rs2] & 0b11111)
+        else:
+            print("Unsupported R-type instruction")
         # Implement other R-type instructions similarly
     else:
         # Handle unsupported instructions or raise an error
