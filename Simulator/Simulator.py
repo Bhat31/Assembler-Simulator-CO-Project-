@@ -84,3 +84,46 @@ def execute_j_type(instruction, registers, pc):
     registers[rd] = pc + 4
     # Update program counter to jump to the target address
     pc += imm
+def execute_b_type(instruction, registers, pc):
+    # Extract operands from instruction
+    imm = int(instruction[0:13], 2)
+    rs1 = int(instruction[13:18], 2)
+    rs2 = int(instruction[18:23], 2)
+    funct3 = instruction[23:26]
+
+    # Perform operation based on funct3
+    if funct3 == '000':  # beq
+        if registers[rs1] == registers[rs2]:
+            pc += imm
+        else:
+            pc += 4
+    elif funct3 == '001':  # bne
+        if registers[rs1] != registers[rs2]:
+            pc += imm
+        else:
+            pc += 4
+    elif funct3 == '100':  # blt
+        if registers[rs1] < registers[rs2]:
+            pc += imm
+        else:
+            pc += 4
+    elif funct3 == '101':  # bge
+        if registers[rs1] >= registers[rs2]:
+            pc += imm
+        else:
+            pc += 4
+    elif funct3 == '110':  # bltu
+        if registers[rs1] < registers[rs2]:
+            pc += imm
+        else:
+            pc += 4
+    elif funct3 == '111':  # bgeu
+        if registers[rs1] >= registers[rs2]:
+            pc += imm
+        else:
+            pc += 4
+    else:
+        # Handle unsupported instructions or raise an error
+        print("Unsupported B-type instruction")
+
+# Add definitions for execute_r_type, execute_s_type, execute_u_type, execute_j_type, and initialize_memory functions
