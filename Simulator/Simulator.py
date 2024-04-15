@@ -127,5 +127,19 @@ def execute_b_type(instruction, registers, pc):
     else:
         # Handle unsupported instructions or raise an error
         print("Unsupported B-type instruction")
+def execute_u_type(instruction, registers):
+    # Extract operands from instruction
+    imm = int(instruction[0:20], 2)
+    rd = int(instruction[20:25], 2)
+    opcode = instruction[-7:]
+
+    # Perform operation based on opcode
+    if opcode == '0010111':  # auipc
+        registers[rd] = (imm << 12) + pc
+    elif opcode == '0110111':  # lui
+        registers[rd] = imm << 12
+    else:
+        # Handle unsupported instructions or raise an error
+        print("Unsupported U-type instruction")
 
 # Add definitions for execute_r_type, execute_s_type, execute_u_type, execute_j_type, and initialize_memory functions
