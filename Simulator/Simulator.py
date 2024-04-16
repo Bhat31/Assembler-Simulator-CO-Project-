@@ -27,6 +27,8 @@ def simulate(instructions):
             execute_u_type(current_instruction, registers)
         elif opcode == '1101111':  # J-type instruction
             execute_j_type(current_instruction, registers, pc)
+        elif opcode == '1100011' and is_virtual_halt(current_instruction):  # Virtual Halt instruction
+            break  # Exit the simulation loop
 
         # Print register values after executing instruction
         print_registers(registers)
@@ -36,6 +38,9 @@ def simulate(instructions):
 
     # Print memory content after execution
     print_memory(memory)
+def is_virtual_halt(instruction):
+    # Check if the instruction is a virtual halt instruction
+    return instruction == '00000000000000000000000000000000'  # Check if it's all zeros
 
 def execute_r_type(instruction, registers):
     # Extract operands from instruction
