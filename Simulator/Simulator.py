@@ -39,8 +39,15 @@ def simulate(instructions):
     # Print memory content after execution
     print_memory(memory)
 def is_virtual_halt(instruction):
-    # Check if the instruction is a virtual halt instruction
-    return instruction == '00000000000000000000000000000000'  # Check if it's all zeros
+    opcode = instruction[-7:]
+    # Check if it's a Virtual Halt instruction
+    if opcode == '1100011':
+        funct3 = instruction[17:20]
+        imm = instruction[0:12]
+        # Check if it's a beq instruction with zero registers and zero offset
+        if funct3 == '000' and imm == '000000000000':
+            return True
+    return False
 
 def execute_r_type(instruction, registers):
     # Extract operands from instruction
