@@ -371,4 +371,7 @@ def main(input_file,output_file):
       for val in all_reg_vals + final_data_mem:
         f.write(f"{val}\n")
 if __name__ == "__main__":
-    main("C:/Users/lenovo/Desktop/s_test4.txt", "C:/Users/lenovo/Desktop/out.txt")
+    inpt=input("enter the input file: ")
+    outp=input("enter the output file: ")
+    main(inpt,outp)
+    #main("C:/Users/lenovo/Desktop/test1.txt", "C:/Users/lenovo/Desktop/out.txt")
