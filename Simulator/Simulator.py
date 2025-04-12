@@ -4,7 +4,7 @@ register_names = {
     "01111": "a5", "10000": "a6", "10001": "a7", "10010": "s2", "10011": "s3","10100": "s4", "10101": "s5", "10110": "s6", "10111": "s7", "11000": "s8","11001": "s9", "11010": "s10", "11011": "s11", "11100": "t3", "11101": "t4",
     "11110": "t5", "11111": "t6"
 }
-
+# this is an oping project
 registers = {reg: 0 for reg in register_names}
 # DATA MEMORY
 data_memory = {0x0001_0000 + 4 * i: 0 for i in range(32)}
